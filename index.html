@@ -1,0 +1,1216 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>邏輯思辨 · 學習地圖｜濠梁之辯 × 買櫝還珠</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/ma-shan-zheng@latest/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-tc@latest/400.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-tc@latest/700.css">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fontsource/noto-serif-tc@latest/900.css">
+<style>
+:root{
+  --paper:#fbf5e8;
+  --paper-2:#fffdf5;
+  --ink:#2e2a26;
+  --ink-soft:#5c5347;
+  --vermilion:#b93a2b;
+  --vermilion-lt:#d9584a;
+  --gold:#b8893c;
+  --gold-lt:#d9ae5f;
+  --jade:#4f7f70;
+  --indigo:#3f5c7a;
+  --line:rgba(185,58,43,.22);
+  --shadow:0 10px 30px rgba(90,60,30,.10);
+  --serif:"Noto Serif TC","Songti TC","PMingLiU",serif;
+  --brush:"Ma Shan Zheng","Noto Serif TC","Songti TC",cursive;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  font-family:var(--serif);
+  color:var(--ink);
+  background-color:var(--paper);
+  background-image:
+    radial-gradient(circle at 12% 8%, rgba(217,174,95,.16), transparent 42%),
+    radial-gradient(circle at 88% 20%, rgba(79,127,112,.12), transparent 40%),
+    radial-gradient(circle at 50% 96%, rgba(185,58,43,.08), transparent 45%),
+    repeating-linear-gradient(0deg, rgba(140,105,60,.045) 0 1px, transparent 1px 5px),
+    repeating-linear-gradient(90deg, rgba(140,105,60,.035) 0 1px, transparent 1px 5px);
+  line-height:1.85;
+  overflow-x:hidden;
+}
+a{color:inherit;text-decoration:none}
+img,svg{display:block;max-width:100%}
+button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit}
+
+/* ============ NAV ============ */
+.nav{
+  position:sticky;top:0;z-index:80;
+  display:flex;align-items:center;gap:18px;
+  padding:10px 26px;
+  background:rgba(251,245,232,.88);
+  backdrop-filter:blur(8px);
+  border-bottom:1px solid var(--line);
+  box-shadow:0 2px 14px rgba(120,80,40,.06);
+}
+.brand{display:flex;align-items:center;gap:10px;flex-shrink:0}
+.brand-seal{
+  width:36px;height:36px;border-radius:6px;
+  background:linear-gradient(145deg,var(--vermilion),#8f2a1e);
+  color:#fff8ec;font-family:var(--brush);font-size:19px;
+  display:grid;place-items:center;line-height:1;
+  box-shadow:0 3px 8px rgba(140,40,30,.35), inset 0 0 0 1px rgba(255,255,255,.28);
+}
+.brand-txt{font-weight:900;font-size:17px;letter-spacing:2px}
+.brand-txt small{display:block;font-size:10px;letter-spacing:3px;color:var(--gold);font-weight:400}
+.nav-links{display:flex;gap:4px;margin-left:auto;overflow-x:auto;scrollbar-width:none}
+.nav-links::-webkit-scrollbar{display:none}
+.nav-links a{
+  padding:7px 14px;font-size:14.5px;letter-spacing:1px;color:var(--ink-soft);
+  border-radius:3px;white-space:nowrap;position:relative;transition:.25s;
+}
+.nav-links a::after{
+  content:'';position:absolute;left:50%;bottom:2px;width:0;height:2px;
+  background:var(--vermilion);transition:.3s;transform:translateX(-50%);
+}
+.nav-links a:hover{color:var(--vermilion)}
+.nav-links a:hover::after,.nav-links a.active::after{width:56%}
+.nav-links a.active{color:var(--vermilion);font-weight:700}
+.nav-pill{
+  flex-shrink:0;display:flex;align-items:center;gap:8px;
+  padding:6px 13px;border:1px solid var(--line);border-radius:999px;
+  background:var(--paper-2);font-size:13px;letter-spacing:1px;color:var(--ink-soft);
+}
+.nav-pill b{color:var(--vermilion);font-size:15px;font-weight:900}
+
+/* ============ HERO ============ */
+.hero{position:relative;min-height:92vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.hero-scene{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.hero-veil{
+  position:absolute;inset:0;z-index:1;
+  background:radial-gradient(ellipse at 50% 40%, rgba(251,245,232,.35), rgba(251,245,232,.82) 62%, var(--paper) 100%);
+}
+.hero-inner{position:relative;z-index:3;text-align:center;padding:70px 20px 90px;max-width:900px}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font-size:13px;letter-spacing:6px;color:var(--gold);margin-bottom:18px;
+}
+.hero-kicker::before,.hero-kicker::after{content:'';width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--gold))}
+.hero-kicker::after{background:linear-gradient(270deg,transparent,var(--gold))}
+.hero-title{
+  font-family:var(--brush);
+  font-size:clamp(52px,10vw,104px);
+  line-height:1.12;color:var(--ink);
+  letter-spacing:6px;
+  text-shadow:0 2px 0 rgba(255,255,255,.6);
+}
+.hero-title span{color:var(--vermilion)}
+.hero-sub{
+  margin:20px auto 8px;max-width:640px;font-size:16.5px;color:var(--ink-soft);letter-spacing:1.5px;
+}
+.hero-quote{
+  font-size:14px;color:var(--jade);letter-spacing:2px;margin-bottom:30px;
+}
+.hero-btns{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-bottom:38px}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:12px 28px;font-size:15px;letter-spacing:2px;border-radius:2px;
+  transition:.3s;position:relative;
+}
+.btn-primary{
+  background:linear-gradient(140deg,var(--vermilion),#96291d);color:#fff6e9;
+  box-shadow:0 8px 20px rgba(150,41,29,.28);
+}
+.btn-primary:hover{transform:translateY(-3px);box-shadow:0 14px 26px rgba(150,41,29,.34)}
+.btn-ghost{border:1px solid var(--gold);color:var(--gold);background:rgba(255,253,247,.6)}
+.btn-ghost:hover{background:var(--gold);color:#fff8ec;transform:translateY(-3px)}
+.hero-stats{display:flex;gap:34px;justify-content:center;flex-wrap:wrap}
+.hstat b{display:block;font-family:var(--brush);font-size:34px;color:var(--vermilion);line-height:1}
+.hstat span{font-size:12.5px;letter-spacing:3px;color:var(--ink-soft)}
+.hero-seal{
+  position:absolute;right:8%;top:16%;z-index:2;
+  width:88px;height:88px;transform:rotate(9deg);
+  animation:sealFloat 7s ease-in-out infinite;
+}
+@keyframes sealFloat{0%,100%{transform:rotate(9deg) translateY(0)}50%{transform:rotate(6deg) translateY(-12px)}}
+.scroll-cue{
+  position:absolute;bottom:22px;left:50%;transform:translateX(-50%);z-index:4;
+  font-size:12px;letter-spacing:4px;color:var(--ink-soft);text-align:center;
+}
+.scroll-cue i{display:block;width:1px;height:34px;background:linear-gradient(var(--vermilion),transparent);margin:8px auto 0;animation:cue 1.8s infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}60%{transform:scaleY(1);transform-origin:top}100%{transform:scaleY(0);transform-origin:bottom}}
+
+/* koi & petals */
+.koi-swim{animation:swim 26s linear infinite}
+.koi-swim.k2{animation-duration:34s;animation-delay:-9s}
+.koi-swim.k3{animation-duration:42s;animation-delay:-20s}
+@keyframes swim{from{transform:translateX(-160px)}to{transform:translateX(1620px)}}
+.petal{position:absolute;top:-30px;z-index:2;pointer-events:none;opacity:.85;animation:fall linear infinite}
+@keyframes fall{
+  0%{transform:translateY(-40px) rotate(0deg);opacity:0}
+  10%{opacity:.9}
+  100%{transform:translateY(105vh) rotate(540deg);opacity:0}
+}
+
+/* ============ SECTION SHELL ============ */
+section{position:relative;padding:82px 22px}
+.wrap{max-width:1180px;margin:0 auto}
+.sec-head{text-align:center;margin-bottom:46px}
+.sec-tag{font-size:12.5px;letter-spacing:7px;color:var(--gold);margin-bottom:10px}
+.sec-title{font-family:var(--brush);font-size:clamp(34px,5vw,50px);letter-spacing:5px;color:var(--ink)}
+.sec-title em{font-style:normal;color:var(--vermilion)}
+.sec-desc{max-width:620px;margin:14px auto 0;font-size:15px;color:var(--ink-soft);letter-spacing:1px}
+.cloud-div{width:min(520px,80%);margin:16px auto 0;opacity:.55}
+
+/* ============ FILTER ============ */
+.filters{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin-bottom:14px}
+.chip{
+  padding:8px 20px;font-size:14px;letter-spacing:2px;border:1px solid var(--line);
+  border-radius:999px;background:var(--paper-2);color:var(--ink-soft);transition:.28s;
+}
+.chip:hover{border-color:var(--vermilion);color:var(--vermilion);transform:translateY(-2px)}
+.chip.on{background:linear-gradient(140deg,var(--vermilion),#96291d);color:#fff6e9;border-color:transparent;box-shadow:0 6px 14px rgba(150,41,29,.24)}
+.filter-note{text-align:center;font-size:13px;color:var(--gold);letter-spacing:2px;margin-bottom:40px;min-height:22px}
+
+/* ============ CHAPTER ============ */
+.chapter{margin-bottom:88px}
+.chapter-plaque{
+  display:flex;gap:26px;align-items:center;flex-wrap:wrap;
+  padding:26px 30px;margin-bottom:56px;
+  background:linear-gradient(135deg,rgba(255,253,247,.95),rgba(250,240,222,.9));
+  border:1px solid var(--line);border-radius:4px;box-shadow:var(--shadow);
+  position:relative;overflow:hidden;
+}
+.chapter-plaque::before{
+  content:'';position:absolute;left:0;top:0;bottom:0;width:6px;
+  background:linear-gradient(var(--vermilion),var(--gold));
+}
+.plaque-art{width:170px;height:132px;flex-shrink:0}
+.plaque-txt{flex:1;min-width:250px}
+.plaque-num{font-family:var(--brush);font-size:15px;color:var(--gold);letter-spacing:4px}
+.plaque-title{font-family:var(--brush);font-size:clamp(32px,4.4vw,44px);letter-spacing:5px;color:var(--ink);line-height:1.25}
+.plaque-src{font-size:13px;color:var(--vermilion);letter-spacing:2px;margin-bottom:8px}
+.plaque-desc{font-size:14.5px;color:var(--ink-soft);letter-spacing:.6px}
+.plaque-quote{
+  margin-top:12px;padding:9px 16px;border-left:3px solid var(--gold-lt);
+  background:rgba(217,174,95,.10);font-size:14px;color:var(--jade);letter-spacing:1px;
+}
+.chapter-bar{display:flex;align-items:center;gap:12px;font-size:13px;letter-spacing:1.5px;color:var(--ink-soft);margin-top:16px}
+.bar{flex:1;max-width:220px;height:7px;background:rgba(185,58,43,.13);border-radius:99px;overflow:hidden}
+.bar i{display:block;height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--vermilion));border-radius:99px;transition:width .7s cubic-bezier(.4,1.3,.5,1)}
+
+/* ============ TIMELINE / STATIONS ============ */
+.stations{position:relative;padding:10px 0}
+.stations::before{
+  content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;transform:translateX(-50%);
+  background:repeating-linear-gradient(180deg,var(--gold) 0 10px,transparent 10px 20px);
+  opacity:.55;
+}
+.station{position:relative;width:50%;padding:0 52px 46px 0}
+.station:nth-of-type(even){margin-left:50%;padding:0 0 46px 52px}
+.node{
+  position:absolute;top:34px;right:-21px;width:42px;height:42px;border-radius:50%;
+  background:var(--paper-2);border:2px solid var(--gold);color:var(--vermilion);
+  display:grid;place-items:center;font-family:var(--brush);font-size:19px;z-index:3;
+  box-shadow:0 4px 12px rgba(150,100,40,.2);transition:.4s;
+}
+.station:nth-of-type(even) .node{right:auto;left:-21px}
+.station-card{
+  background:var(--paper-2);border:1px solid var(--line);border-radius:4px;
+  padding:24px 26px;box-shadow:var(--shadow);position:relative;transition:.4s;
+}
+.station-card::after{
+  content:'';position:absolute;top:44px;right:-9px;width:16px;height:16px;
+  background:var(--paper-2);border-right:1px solid var(--line);border-bottom:1px solid var(--line);
+  transform:rotate(-45deg);
+}
+.station:nth-of-type(even) .station-card::after{right:auto;left:-9px;transform:rotate(135deg)}
+.station-card:hover{transform:translateY(-5px);box-shadow:0 18px 38px rgba(90,60,30,.16);border-color:var(--gold-lt)}
+.station.done .node{background:linear-gradient(140deg,var(--vermilion),#96291d);border-color:var(--vermilion);color:#fff6e9}
+.station.done .station-card{border-color:rgba(79,127,112,.5);background:linear-gradient(135deg,#fffdf6,#f4faf5)}
+.station.done .station-card::after{background:#fffdf7}
+.station.hidden{display:none}
+
+.card-top{display:flex;align-items:flex-start;gap:14px;margin-bottom:12px}
+.card-icon{
+  width:46px;height:46px;flex-shrink:0;border-radius:6px;display:grid;place-items:center;
+  background:linear-gradient(140deg,rgba(217,174,95,.22),rgba(185,58,43,.14));
+  border:1px solid rgba(185,58,43,.2);
+}
+.card-icon svg{width:26px;height:26px}
+.card-title{font-size:20px;font-weight:900;letter-spacing:1.5px;line-height:1.4}
+.card-badges{display:flex;gap:7px;flex-wrap:wrap;margin-top:7px}
+.badge{
+  font-size:11.5px;letter-spacing:2px;padding:2.5px 10px;border-radius:99px;
+  border:1px solid currentColor;
+}
+.b-course{color:var(--vermilion);background:rgba(185,58,43,.08)}
+.b-extend{color:var(--indigo);background:rgba(63,92,122,.08)}
+.b-discuss{color:var(--jade);background:rgba(79,127,112,.09)}
+.b-video{color:var(--gold);background:rgba(185,137,60,.10)}
+.card-desc{font-size:14.5px;color:var(--ink-soft);letter-spacing:.5px;margin-bottom:14px}
+.card-meta{display:flex;gap:16px;flex-wrap:wrap;font-size:12.5px;color:var(--gold);letter-spacing:1.5px;margin-bottom:16px}
+.card-meta span{display:inline-flex;align-items:center;gap:5px}
+.card-actions{display:flex;gap:9px;flex-wrap:wrap;align-items:center}
+.go{
+  display:inline-flex;align-items:center;gap:8px;padding:9px 20px;border-radius:2px;
+  background:linear-gradient(140deg,var(--vermilion),#96291d);color:#fff6e9;
+  font-size:14px;letter-spacing:2px;transition:.3s;box-shadow:0 6px 14px rgba(150,41,29,.22);
+}
+.go:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(150,41,29,.3)}
+.go svg{width:14px;height:14px}
+.mini{
+  padding:9px 15px;border:1px solid var(--line);border-radius:2px;font-size:13px;
+  letter-spacing:1.5px;color:var(--ink-soft);transition:.28s;background:rgba(255,253,247,.7);
+}
+.mini:hover{border-color:var(--gold);color:var(--gold)}
+.check-btn{
+  margin-left:auto;display:inline-flex;align-items:center;gap:8px;
+  padding:9px 15px;border:1px dashed rgba(79,127,112,.55);border-radius:2px;
+  font-size:13px;letter-spacing:1.5px;color:var(--jade);transition:.28s;
+}
+.check-btn:hover{background:rgba(79,127,112,.1)}
+.tick{
+  width:17px;height:17px;border-radius:50%;border:1.5px solid var(--jade);
+  display:grid;place-items:center;font-size:11px;color:transparent;transition:.28s;
+}
+.station.done .check-btn{border-style:solid;background:rgba(79,127,112,.14)}
+.station.done .tick{background:var(--jade);border-color:var(--jade);color:#fff}
+
+/* ============ PROGRESS ============ */
+#progress{background:linear-gradient(180deg,transparent,rgba(217,174,95,.10),transparent)}
+.prog-grid{display:grid;grid-template-columns:290px 1fr;gap:40px;align-items:center;
+  background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:38px;box-shadow:var(--shadow)}
+.ring-box{text-align:center}
+.ring{width:210px;height:210px;margin:0 auto;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:13;stroke-linecap:round}
+.ring .bg{stroke:rgba(185,58,43,.12)}
+.ring .fg{stroke:url(#ringGrad);stroke-dasharray:339.29;stroke-dashoffset:339.29;transition:stroke-dashoffset 1s cubic-bezier(.4,1.2,.5,1)}
+.ring-num{position:relative;margin-top:-132px;height:110px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.ring-num b{font-family:var(--brush);font-size:52px;color:var(--vermilion);line-height:1}
+.ring-num span{font-size:12px;letter-spacing:3px;color:var(--ink-soft)}
+.prog-txt h3{font-family:var(--brush);font-size:30px;letter-spacing:3px;margin-bottom:10px}
+.prog-txt p{font-size:14.5px;color:var(--ink-soft);margin-bottom:22px}
+.stat-row{display:flex;gap:14px;flex-wrap:wrap;margin-bottom:24px}
+.stat{
+  flex:1;min-width:112px;padding:14px 16px;border:1px solid var(--line);border-radius:3px;
+  background:linear-gradient(135deg,rgba(255,253,247,.9),rgba(250,240,222,.7));text-align:center;
+}
+.stat b{display:block;font-family:var(--brush);font-size:28px;color:var(--gold);line-height:1.15}
+.stat span{font-size:12px;letter-spacing:2px;color:var(--ink-soft)}
+.reset{font-size:13px;letter-spacing:2px;color:var(--ink-soft);border-bottom:1px dashed var(--gold);padding-bottom:2px}
+.reset:hover{color:var(--vermilion);border-color:var(--vermilion)}
+
+/* ============ TIPS ============ */
+.tips-grid{display:grid;grid-template-columns:1fr 1fr;gap:34px}
+.panel{background:var(--paper-2);border:1px solid var(--line);border-radius:4px;padding:30px;box-shadow:var(--shadow)}
+.panel-h{display:flex;align-items:center;gap:12px;margin-bottom:22px}
+.panel-h svg{width:30px;height:30px}
+.panel-h h3{font-family:var(--brush);font-size:26px;letter-spacing:3px}
+.concept{
+  border-left:3px solid var(--gold);padding:12px 16px;margin-bottom:14px;
+  background:linear-gradient(90deg,rgba(217,174,95,.10),transparent);transition:.3s;
+}
+.concept:hover{border-left-color:var(--vermilion);background:linear-gradient(90deg,rgba(185,58,43,.09),transparent);transform:translateX(4px)}
+.concept h4{font-size:16px;letter-spacing:1.5px;margin-bottom:4px;color:var(--vermilion)}
+.concept p{font-size:13.8px;color:var(--ink-soft);letter-spacing:.4px}
+.concept small{display:inline-block;margin-top:6px;font-size:11.5px;letter-spacing:2px;color:var(--jade)}
+.acc{border-bottom:1px dashed var(--line)}
+.acc:last-child{border-bottom:none}
+.acc-q{
+  width:100%;display:flex;align-items:center;gap:12px;text-align:left;
+  padding:15px 4px;font-size:15px;letter-spacing:.8px;transition:.28s;color:var(--ink);
+}
+.acc-q:hover{color:var(--vermilion)}
+.acc-q .qn{
+  font-family:var(--brush);font-size:16px;color:var(--gold);flex-shrink:0;
+  width:26px;height:26px;border:1px solid var(--gold);border-radius:50%;display:grid;place-items:center;
+}
+.acc-q .plus{margin-left:auto;flex-shrink:0;color:var(--vermilion);transition:.35s;font-size:18px}
+.acc.open .plus{transform:rotate(45deg)}
+.acc-a{max-height:0;overflow:hidden;transition:max-height .45s ease}
+.acc-a div{padding:0 4px 18px 38px;font-size:13.8px;color:var(--ink-soft);letter-spacing:.5px}
+
+/* ============ STEPS ============ */
+.steps{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;margin-top:14px}
+.step{
+  position:relative;padding:26px 20px;text-align:center;border:1px solid var(--line);border-radius:4px;
+  background:var(--paper-2);transition:.35s;box-shadow:var(--shadow);
+}
+.step:hover{transform:translateY(-6px);border-color:var(--gold-lt)}
+.step .sn{
+  width:52px;height:52px;margin:0 auto 14px;border-radius:50%;display:grid;place-items:center;
+  font-family:var(--brush);font-size:24px;color:#fff6e9;
+  background:linear-gradient(140deg,var(--vermilion),#8f2a1e);box-shadow:0 6px 14px rgba(150,41,29,.25);
+}
+.step:nth-child(2) .sn{background:linear-gradient(140deg,var(--gold),#96702d)}
+.step:nth-child(3) .sn{background:linear-gradient(140deg,var(--jade),#3a6055)}
+.step:nth-child(4) .sn{background:linear-gradient(140deg,var(--indigo),#2e465e)}
+.step h4{font-size:17px;letter-spacing:2px;margin-bottom:7px}
+.step p{font-size:13px;color:var(--ink-soft);letter-spacing:.5px}
+.step:not(:last-child)::after{
+  content:'➤';position:absolute;right:-16px;top:44%;color:var(--gold-lt);font-size:15px;z-index:2;
+}
+
+/* ============ FOOTER ============ */
+footer{
+  padding:56px 22px 34px;text-align:center;border-top:1px solid var(--line);
+  background:linear-gradient(180deg,transparent,rgba(185,58,43,.06));
+}
+.foot-seal{width:62px;height:62px;margin:0 auto 18px}
+footer p{font-size:13.5px;color:var(--ink-soft);letter-spacing:2px;margin-bottom:6px}
+footer .small{font-size:11.5px;color:var(--gold);letter-spacing:2px}
+.foot-links{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;margin:16px 0 20px}
+.foot-links a{font-size:13px;color:var(--ink-soft);border-bottom:1px solid transparent;transition:.25s}
+.foot-links a:hover{color:var(--vermilion);border-color:var(--vermilion)}
+
+/* ============ MISC ============ */
+.toTop{
+  position:fixed;right:24px;bottom:26px;z-index:90;width:52px;height:52px;border-radius:8px;
+  background:linear-gradient(145deg,var(--vermilion),#8f2a1e);color:#fff6e9;
+  display:grid;place-items:center;font-family:var(--brush);font-size:20px;
+  box-shadow:0 10px 22px rgba(150,41,29,.32);opacity:0;pointer-events:none;transition:.4s;
+}
+.toTop.show{opacity:1;pointer-events:auto}
+.toTop:hover{transform:translateY(-4px) rotate(-4deg)}
+.toast{
+  position:fixed;left:50%;bottom:34px;transform:translate(-50%,90px);z-index:120;
+  padding:12px 26px;background:rgba(46,42,38,.94);color:#fbf5e8;font-size:14px;letter-spacing:2px;
+  border-radius:2px;border-left:3px solid var(--gold-lt);transition:.45s cubic-bezier(.3,1.4,.5,1);opacity:0;
+}
+.toast.show{transform:translate(-50%,0);opacity:1}
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.3,1)}
+.reveal.in{opacity:1;transform:none}
+
+@media (max-width:900px){
+  .tips-grid{grid-template-columns:1fr}
+  .steps{grid-template-columns:1fr 1fr}
+  .step:not(:last-child)::after{display:none}
+  .prog-grid{grid-template-columns:1fr;padding:28px 22px;text-align:center}
+  .stat-row{justify-content:center}
+  .reset{margin:0 auto}
+}
+@media (max-width:720px){
+  .nav{padding:9px 14px;gap:10px}
+  .brand-txt{font-size:15px}
+  .nav-links{display:none}
+  section{padding:60px 16px}
+  .stations::before{left:16px}
+  .station,.station:nth-of-type(even){width:100%;margin-left:0;padding:0 0 34px 48px}
+  .node,.station:nth-of-type(even) .node{left:-5px;right:auto}
+  .station-card::after,.station:nth-of-type(even) .station-card::after{left:-9px;right:auto;transform:rotate(135deg)}
+  .plaque-art{width:130px;height:102px;margin:0 auto}
+  .chapter-plaque{padding:22px 20px;text-align:center;justify-content:center}
+  .check-btn{margin-left:0}
+  .hero-seal{width:62px;height:62px;right:5%;top:10%}
+}
+</style>
+</head>
+<body>
+
+<!-- ===== SVG DEFS ===== -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <linearGradient id="ringGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#d9ae5f"/><stop offset="100%" stop-color="#b93a2b"/>
+    </linearGradient>
+    <linearGradient id="skyG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fdf6e6"/><stop offset="55%" stop-color="#f7ead2"/><stop offset="100%" stop-color="#eef3ee"/>
+    </linearGradient>
+    <linearGradient id="waterG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#cfe0dc"/><stop offset="100%" stop-color="#a9c8c6"/>
+    </linearGradient>
+    <linearGradient id="mt1" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#9fb6c4"/><stop offset="100%" stop-color="#c9d6dd"/>
+    </linearGradient>
+    <linearGradient id="mt2" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#7f9bab"/><stop offset="100%" stop-color="#b3c6cd"/>
+    </linearGradient>
+    <linearGradient id="mt3" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#6d8b7d"/><stop offset="100%" stop-color="#9fbcae"/>
+    </linearGradient>
+    <radialGradient id="sunG" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#f6d9a8" stop-opacity=".95"/><stop offset="100%" stop-color="#e9b489" stop-opacity=".25"/>
+    </radialGradient>
+    <linearGradient id="woodG" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a9743f"/><stop offset="100%" stop-color="#7c5227"/>
+    </linearGradient>
+    <symbol id="koi" viewBox="0 0 90 40">
+      <path d="M6 20 C16 6 46 2 62 14 C70 20 70 20 62 26 C46 38 16 34 6 20 Z" fill="#d9584a"/>
+      <path d="M62 14 C70 6 84 4 88 8 C82 14 82 26 88 32 C84 36 70 34 62 26 Z" fill="#b93a2b"/>
+      <path d="M20 12 C30 8 44 9 52 15 C42 18 28 18 20 12 Z" fill="#f2d9a4" opacity=".85"/>
+      <path d="M30 26 C38 30 48 30 55 26 C48 32 36 32 30 26 Z" fill="#f6e3b8" opacity=".7"/>
+      <circle cx="16" cy="18" r="2.4" fill="#3a2a22"/>
+      <path d="M34 8 C38 2 44 2 46 6 C42 9 38 10 34 8 Z" fill="#e8a13f" opacity=".8"/>
+    </symbol>
+    <symbol id="cloud" viewBox="0 0 48 30">
+      <path d="M8 27 C3 27 0 23.5 0 19.5 C0 15 3.5 11.5 8 11.5 C9.5 5 15.5 0.5 22.5 0.5 C28 0.5 32.8 3.5 35.2 8 C36.5 7.4 38 7 39.5 7 C44.5 7 48 10.8 48 15.5 C48 22 44 27 38 27 Z"
+        fill="none" stroke="#b8893c" stroke-width="1.6"/>
+      <path d="M11 20 C11 16.5 14 14 17.5 14.5" fill="none" stroke="#b8893c" stroke-width="1.2" opacity=".7"/>
+    </symbol>
+  </defs>
+</svg>
+
+<!-- ===== NAV ===== -->
+<nav class="nav">
+  <div class="brand">
+    <div class="brand-seal">思</div>
+    <div class="brand-txt">邏輯思辨<small>LEARNING MAP</small></div>
+  </div>
+  <div class="nav-links">
+    <a href="#map" class="active">學習地圖</a>
+    <a href="#ch-fish">濠梁之辯</a>
+    <a href="#ch-pearl">買櫝還珠</a>
+    <a href="#steps">學習路線</a>
+    <a href="#progress">學習進度</a>
+    <a href="#tips">思辨錦囊</a>
+  </div>
+  <div class="nav-pill"><b id="navCount">0</b>/8 站已完成</div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<header class="hero" id="top">
+  <svg class="hero-scene" viewBox="0 0 1440 760" preserveAspectRatio="xMidYMid slice">
+    <rect width="1440" height="760" fill="url(#skyG)"/>
+    <circle cx="1120" cy="180" r="120" fill="url(#sunG)"/>
+    <circle cx="1120" cy="180" r="62" fill="#e2705f" opacity=".35"/>
+    <!-- far mountains -->
+    <path d="M0 430 L120 300 L210 372 L300 250 L420 400 L520 320 L640 430 Z" fill="url(#mt1)" opacity=".55"/>
+    <path d="M700 430 L820 268 L920 356 L1040 240 L1180 400 L1300 300 L1440 430 Z" fill="url(#mt1)" opacity=".5"/>
+    <path d="M0 452 L150 352 L260 424 L390 330 L520 452 Z" fill="url(#mt2)" opacity=".5"/>
+    <path d="M860 452 L1000 340 L1120 420 L1260 348 L1440 452 Z" fill="url(#mt2)" opacity=".45"/>
+    <!-- mist -->
+    <g fill="#fffdf5" opacity=".72">
+      <ellipse cx="330" cy="418" rx="330" ry="22"/>
+      <ellipse cx="1080" cy="426" rx="380" ry="20"/>
+      <ellipse cx="720" cy="404" rx="240" ry="14" opacity=".6"/>
+    </g>
+    <path d="M0 452 L150 372 L280 452 L420 380 L560 452 L700 390 L840 452 L980 378 L1120 452 L1280 386 L1440 452 L1440 500 L0 500 Z" fill="url(#mt3)" opacity=".42"/>
+    <!-- water -->
+    <rect x="0" y="486" width="1440" height="274" fill="url(#waterG)" opacity=".72"/>
+    <g stroke="#ffffff" stroke-opacity=".5" stroke-width="2" fill="none">
+      <path d="M60 540 q40 -12 80 0 t80 0 t80 0"/>
+      <path d="M560 596 q40 -12 80 0 t80 0 t80 0"/>
+      <path d="M980 548 q40 -12 80 0 t80 0 t80 0"/>
+      <path d="M220 668 q40 -12 80 0 t80 0 t80 0"/>
+      <path d="M1080 690 q40 -12 80 0 t80 0 t80 0"/>
+    </g>
+    <!-- bridge -->
+    <g>
+      <path d="M470 500 Q720 372 970 500 L970 516 Q720 392 470 516 Z" fill="url(#woodG)"/>
+      <path d="M470 516 Q720 392 970 516 L970 528 Q720 408 470 528 Z" fill="#6b4620" opacity=".55"/>
+      <g stroke="#8a5c2c" stroke-width="4">
+        <path d="M500 494 L500 466"/><path d="M560 472 L560 442"/><path d="M630 452 L630 420"/>
+        <path d="M720 442 L720 410"/><path d="M810 452 L810 420"/><path d="M880 472 L880 442"/><path d="M940 494 L940 466"/>
+      </g>
+      <path d="M492 468 Q720 348 948 468" stroke="#a9743f" stroke-width="6" fill="none"/>
+      <path d="M492 456 Q720 336 948 456" stroke="#c08a4e" stroke-width="3" fill="none" opacity=".8"/>
+      <rect x="452" y="498" width="26" height="86" rx="4" fill="#7c5227"/>
+      <rect x="962" y="498" width="26" height="86" rx="4" fill="#7c5227"/>
+    </g>
+    <!-- two figures debating -->
+    <g fill="#3f5c7a" opacity=".92">
+      <path d="M676 424 c0-9 7-16 16-16 s16 7 16 16 c0 4-1 7-3 9 l6 30 -38 0 6-30 c-2-2-3-5-3-9 z"/>
+      <path d="M668 463 l44 0 6 42 -56 0 z"/>
+    </g>
+    <g fill="#b93a2b" opacity=".92">
+      <path d="M740 428 c0-9 7-16 16-16 s16 7 16 16 c0 4-1 7-3 9 l6 30 -38 0 6-30 c-2-2-3-5-3-9 z"/>
+      <path d="M732 467 l44 0 6 40 -56 0 z"/>
+      <path d="M778 452 l26 -20 4 6 -24 22 z"/>
+    </g>
+    <!-- koi -->
+    <g class="koi-swim"><use href="#koi" x="0" y="560" width="110" height="49"/></g>
+    <g class="koi-swim k2"><use href="#koi" x="0" y="640" width="86" height="38" opacity=".9"/></g>
+    <g class="koi-swim k3"><use href="#koi" x="0" y="706" width="132" height="59" opacity=".8"/></g>
+    <!-- plum branch -->
+    <g stroke="#6b4620" stroke-width="6" fill="none" stroke-linecap="round">
+      <path d="M0 60 C90 92 150 150 176 232"/>
+      <path d="M64 92 C104 96 132 118 146 152"/>
+      <path d="M120 168 C150 170 172 186 182 208"/>
+    </g>
+    <g fill="#e79aa4">
+      <circle cx="58" cy="86" r="9"/><circle cx="96" cy="112" r="7"/><circle cx="140" cy="148" r="9"/>
+      <circle cx="168" cy="200" r="8"/><circle cx="128" cy="176" r="6.5"/><circle cx="186" cy="228" r="7"/>
+      <circle cx="80" cy="118" r="5.5"/><circle cx="152" cy="184" r="5"/>
+    </g>
+    <g fill="#f6d9a8">
+      <circle cx="58" cy="86" r="3"/><circle cx="140" cy="148" r="3"/><circle cx="168" cy="200" r="2.6"/><circle cx="186" cy="228" r="2.4"/>
+    </g>
+  </svg>
+  <div class="hero-veil"></div>
+
+  <svg class="hero-seal" viewBox="0 0 100 100">
+    <rect x="4" y="4" width="92" height="92" rx="10" fill="#b93a2b" opacity=".92"/>
+    <rect x="10" y="10" width="80" height="80" rx="6" fill="none" stroke="#fff6e9" stroke-width="2" opacity=".7"/>
+    <text x="50" y="42" text-anchor="middle" font-family="Ma Shan Zheng, serif" font-size="30" fill="#fff6e9">思辨</text>
+    <text x="50" y="76" text-anchor="middle" font-family="Ma Shan Zheng, serif" font-size="26" fill="#f6d9a8">地圖</text>
+  </svg>
+
+  <div class="hero-inner">
+    <div class="hero-kicker">上 學 期 · 古 典 寓 言 思 辨 課</div>
+    <h1 class="hero-title">邏輯<span>思辨</span>學習地圖</h1>
+    <p class="hero-sub">循著一座「梁」、一杆「秤」，走進《莊子》與《韓非子》的辯論現場。<br>八個學習站，串起閱讀、思辨、討論與動畫的完整旅程。</p>
+    <p class="hero-quote">「子非魚，安知魚之樂？」　·　「買其櫝而還其珠」</p>
+    <div class="hero-btns">
+      <a href="#map" class="btn btn-primary">展開學習地圖
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+      </a>
+      <a href="#progress" class="btn btn-ghost">查看我的進度</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><b>貳</b><span>經典寓言</span></div>
+      <div class="hstat"><b>捌</b><span>學習站點</span></div>
+      <div class="hstat"><b>肆</b><span>思辨階段</span></div>
+    </div>
+  </div>
+  <div class="scroll-cue">向 下 展 卷<i></i></div>
+</header>
+
+<!-- ===== MAP ===== -->
+<section id="map">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">LEARNING MAP</div>
+      <h2 class="sec-title">思辨<em>之途</em></h2>
+      <p class="sec-desc">每一站都是一段推理的風景。可依照「暖身 → 主課程 → 延伸思辨 → 討論實踐」的順序前行，完成後請為該站蓋上印章。</p>
+      <svg class="cloud-div" viewBox="0 0 520 30" preserveAspectRatio="none">
+        <use href="#cloud" x="0" y="0" width="48" height="30"/>
+        <use href="#cloud" x="60" y="4" width="40" height="25" opacity=".7"/>
+        <use href="#cloud" x="120" y="0" width="48" height="30"/>
+        <use href="#cloud" x="180" y="4" width="40" height="25" opacity=".7"/>
+        <use href="#cloud" x="240" y="0" width="48" height="30"/>
+        <use href="#cloud" x="300" y="4" width="40" height="25" opacity=".7"/>
+        <use href="#cloud" x="360" y="0" width="48" height="30"/>
+        <use href="#cloud" x="420" y="4" width="40" height="25" opacity=".7"/>
+        <use href="#cloud" x="472" y="0" width="48" height="30"/>
+      </svg>
+    </div>
+
+    <div class="filters reveal" id="filters">
+      <button class="chip on" data-filter="all">全　部</button>
+      <button class="chip" data-filter="fish">濠梁之辯</button>
+      <button class="chip" data-filter="pearl">買櫝還珠</button>
+      <button class="chip" data-filter="course">主課程</button>
+      <button class="chip" data-filter="extend">思辨延伸</button>
+      <button class="chip" data-filter="discuss">討論題</button>
+      <button class="chip" data-filter="video">小動畫</button>
+    </div>
+    <div class="filter-note" id="filterNote">共 8 個學習站 · 已完成 <b id="noteCount" style="color:#b93a2b">0</b> 站</div>
+
+    <!-- ===== CHAPTER 1 : 濠梁之辯 ===== -->
+    <div class="chapter" id="ch-fish" data-chapter="fish">
+      <div class="chapter-plaque reveal">
+        <svg class="plaque-art" viewBox="0 0 200 156">
+          <rect width="200" height="156" rx="4" fill="#f4f8f4"/>
+          <path d="M0 118 L200 118 L200 156 L0 156 Z" fill="#cfe0dc"/>
+          <path d="M10 96 Q100 44 190 96 L190 106 Q100 56 10 106 Z" fill="#a9743f"/>
+          <g stroke="#8a5c2c" stroke-width="2.6">
+            <path d="M34 84 L34 70"/><path d="M66 68 L66 52"/><path d="M100 62 L100 46"/><path d="M134 68 L134 52"/><path d="M166 84 L166 70"/>
+          </g>
+          <path d="M26 72 Q100 32 174 72" stroke="#c08a4e" stroke-width="3" fill="none"/>
+          <rect x="6" y="96" width="12" height="46" rx="2" fill="#7c5227"/>
+          <rect x="182" y="96" width="12" height="46" rx="2" fill="#7c5227"/>
+          <g fill="#3f5c7a"><path d="M86 74 c0-5 4-9 9-9 s9 4 9 9 c0 2-.5 4-1.5 5 l3 16 -21 0 3-16 c-1-1-1.5-3-1.5-5 z"/></g>
+          <g fill="#b93a2b"><path d="M112 76 c0-5 4-9 9-9 s9 4 9 9 c0 2-.5 4-1.5 5 l3 15 -21 0 3-15 c-1-1-1.5-3-1.5-5 z"/></g>
+          <use href="#koi" x="18" y="124" width="46" height="20"/>
+          <use href="#koi" x="120" y="132" width="56" height="25" opacity=".85"/>
+          <g stroke="#fff" stroke-opacity=".65" stroke-width="1.6" fill="none">
+            <path d="M74 140 q10 -5 20 0 t20 0"/>
+          </g>
+          <rect x="1" y="1" width="198" height="154" rx="4" fill="none" stroke="#b8893c" stroke-opacity=".5"/>
+        </svg>
+        <div class="plaque-txt">
+          <div class="plaque-num">第 壹 章 · 卷 之 一</div>
+          <h3 class="plaque-title">濠梁之辯</h3>
+          <div class="plaque-src">《莊子 · 秋水》</div>
+          <p class="plaque-desc">莊子與惠子游於濠梁之上，一句「安知魚之樂」，展開了關於認知界限、類比推理與論證有效性千年的辯論。本章四站，帶你從動畫暖身走到課堂思辨。</p>
+          <div class="plaque-quote">「鯈魚出遊從容，是魚之樂也。」　「子非我，安知我不知魚之樂？」</div>
+          <div class="chapter-bar">
+            <span>本章進度</span>
+            <div class="bar"><i data-bar="fish"></i></div>
+            <span><b data-count="fish">0</b>/4 站</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stations">
+        <!-- 1 -->
+        <div class="station reveal" data-id="fish-video" data-tags="fish video">
+          <div class="node">壹</div>
+          <div class="station-card">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#b93a2b" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="M10 9.2v5.6l4.8-2.8z" fill="#b93a2b" stroke="none"/></svg>
+              </div>
+              <div>
+                <div class="card-title">濠梁之辯（小動畫）</div>
+                <div class="card-badges">
+                  <span class="badge b-video">動畫短片</span><span class="badge b-course">暖身導讀</span>
+                </div>
+              </div>
+            </div>
+            <p class="card-desc">一分鐘短片速覽故事場景：濠水、石梁、游魚與兩位辯者。適合在上課前先建立畫面感，再進入文本細讀。</p>
+            <div class="card-meta">
+              <span>⏱ 約 1 分鐘</span><span>📺 YouTube Shorts</span><span>◎ 建議最先觀賞</span>
+            </div>
+            <div class="card-actions">
+              <a class="go" href="https://youtube.com/shorts/WaGZZQfBId0?feature=share" target="_blank" rel="noopener">前往觀賞
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <button class="mini" data-copy="https://youtube.com/shorts/WaGZZQfBId0?feature=share">複製連結</button>
+              <button class="check-btn" aria-pressed="false"><span class="tick">✓</span><span class="check-label">標記完成</span></button>
+            </div>
+          </div>
+        </div>
+        <!-- 2 -->
+        <div class="station reveal" data-id="fish-course" data-tags="fish course">
+          <div class="node">貳</div>
+          <div class="station-card">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#b93a2b" stroke-width="1.8"><path d="M12 6.5C10.5 5 8 4.3 4.5 4.6v13C8 17.3 10.5 18 12 19.5c1.5-1.5 4-2.2 7.5-1.9v-13C16 4.3 13.5 5 12 6.5z"/><path d="M12 6.5v13"/></svg>
+              </div>
+              <div>
+                <div class="card-title">邏輯思辨：濠梁之辯</div>
+                <div class="card-badges"><span class="badge b-course">主課程</span></div>
+              </div>
+            </div>
+            <p class="card-desc">核心互動教材。原文導讀、字詞注釋與論證結構拆解：找出主張、理由與推論方式，看清莊子如何以「請循其本」反將一軍。</p>
+            <div class="card-meta">
+              <span>⏱ 約 15 分鐘</span><span>🖥 互動網頁</span><span>◎ 本章核心</span>
+            </div>
+            <div class="card-actions">
+              <a class="go" href="https://p3688905-bit.github.io/fish3/" target="_blank" rel="noopener">開始學習
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <button class="mini" data-copy="https://p3688905-bit.github.io/fish3/">複製連結</button>
+              <button class="check-btn" aria-pressed="false"><span class="tick">✓</span><span class="check-label">標記完成</span></button>
+            </div>
+          </div>
+        </div>
+        <!-- 3 -->
+        <div class="station reveal" data-id="fish-extend" data-tags="fish extend">
+          <div class="node">參</div>
+          <div class="station-card">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#3f5c7a" stroke-width="1.8"><path d="M3 15c3-6 6-9 9-9s6 3 9 9"/><path d="M2 15h20"/><path d="M6 15v4M18 15v4M12 6V3"/></svg>
+              </div>
+              <div>
+                <div class="card-title">思辨之梁：濠梁之辯</div>
+                <div class="card-badges"><span class="badge b-extend">思辨延伸</span></div>
+              </div>
+            </div>
+            <p class="card-desc">以「梁」為喻——搭一座從前提通往結論的推理之橋。比較類比推理與演繹推論的差異，辨識「有效論證」與「巧妙詭辯」的分界。</p>
+            <div class="card-meta">
+              <span>⏱ 約 10 分鐘</span><span>🖥 互動網頁</span><span>◎ 加深推理能力</span>
+            </div>
+            <div class="card-actions">
+              <a class="go" href="https://p3688905-bit.github.io/fish2/" target="_blank" rel="noopener">進入思辨之梁
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <button class="mini" data-copy="https://p3688905-bit.github.io/fish2/">複製連結</button>
+              <button class="check-btn" aria-pressed="false"><span class="tick">✓</span><span class="check-label">標記完成</span></button>
+            </div>
+          </div>
+        </div>
+        <!-- 4 -->
+        <div class="station reveal" data-id="fish-discuss" data-tags="fish discuss">
+          <div class="node">肆</div>
+          <div class="station-card">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4f7f70" stroke-width="1.8"><path d="M20 15a3 3 0 0 1-3 3H8l-4 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3z"/><path d="M8.5 9h7M8.5 12.5h4.5"/></svg>
+              </div>
+              <div>
+                <div class="card-title">濠梁之辯（討論題）</div>
+                <div class="card-badges"><span class="badge b-discuss">討論實踐</span></div>
+              </div>
+            </div>
+            <p class="card-desc">把推理說出口。分組提問與互相反駁：你如何知道魚的快樂？誰的論證更有說服力？練習主張、舉證、回應質疑的完整思辨流程。</p>
+            <div class="card-meta">
+              <span>⏱ 約 20 分鐘</span><span>🖥 互動網頁</span><span>◎ 小組共學</span>
+            </div>
+            <div class="card-actions">
+              <a class="go" href="https://p3688905-bit.github.io/fish4/" target="_blank" rel="noopener">展開討論題
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <button class="mini" data-copy="https://p3688905-bit.github.io/fish4/">複製連結</button>
+              <button class="check-btn" aria-pressed="false"><span class="tick">✓</span><span class="check-label">標記完成</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== CHAPTER 2 : 買櫝還珠 ===== -->
+    <div class="chapter" id="ch-pearl" data-chapter="pearl">
+      <div class="chapter-plaque reveal">
+        <svg class="plaque-art" viewBox="0 0 200 156">
+          <rect width="200" height="156" rx="4" fill="#fbf4ec"/>
+          <ellipse cx="100" cy="140" rx="76" ry="9" fill="#e0cdb0" opacity=".7"/>
+          <path d="M38 62 L162 62 L170 76 L30 76 Z" fill="#8a5c2c"/>
+          <rect x="40" y="76" width="120" height="56" rx="4" fill="url(#woodG)"/>
+          <rect x="48" y="84" width="104" height="40" rx="3" fill="none" stroke="#d9ae5f" stroke-width="1.6" opacity=".85"/>
+          <g stroke="#d9ae5f" stroke-width="1.3" fill="none" opacity=".8">
+            <path d="M56 96 q10 -8 20 0 q10 8 20 0"/>
+            <path d="M108 96 q10 -8 20 0 q10 8 20 0"/>
+            <path d="M56 112 q10 -8 20 0 q10 8 20 0"/>
+            <path d="M108 112 q10 -8 20 0 q10 8 20 0"/>
+          </g>
+          <path d="M52 62 L148 62 L156 26 Q100 10 44 26 Z" fill="#a9743f" transform="rotate(-8 100 44)"/>
+          <path d="M52 62 L148 62 L156 26 Q100 10 44 26 Z" fill="none" stroke="#d9ae5f" stroke-width="1.4" opacity=".7" transform="rotate(-8 100 44)"/>
+          <circle cx="100" cy="100" r="19" fill="#fffaf0"/>
+          <circle cx="100" cy="100" r="19" fill="none" stroke="#e6d3b3" stroke-width="1.2"/>
+          <circle cx="93" cy="93" r="6" fill="#ffffff" opacity=".95"/>
+          <g stroke="#d9ae5f" stroke-width="1.6" opacity=".85">
+            <path d="M100 72 L100 64"/><path d="M122 78 L128 72"/><path d="M78 78 L72 72"/><path d="M128 100 L136 100"/><path d="M72 100 L64 100"/>
+          </g>
+          <rect x="1" y="1" width="198" height="154" rx="4" fill="none" stroke="#b8893c" stroke-opacity=".5"/>
+        </svg>
+        <div class="plaque-txt">
+          <div class="plaque-num">第 貳 章 · 卷 之 二</div>
+          <h3 class="plaque-title">買櫝還珠</h3>
+          <div class="plaque-src">《韓非子 · 外儲說左上》</div>
+          <p class="plaque-desc">楚人鬻珠於鄭者，為木櫝、飾以桂椒珠玉；鄭人買其櫝而還其珠。一杆思辨之「秤」，稱量形式與內容、手段與目的之間的輕重。</p>
+          <div class="plaque-quote">「可謂善賣櫝矣，未可謂善鬻珠也。」</div>
+          <div class="chapter-bar">
+            <span>本章進度</span>
+            <div class="bar"><i data-bar="pearl"></i></div>
+            <span><b data-count="pearl">0</b>/4 站</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="stations">
+        <div class="station reveal" data-id="pearl-video" data-tags="pearl video">
+          <div class="node">壹</div>
+          <div class="station-card">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#b8893c" stroke-width="1.8"><rect x="2.5" y="4.5" width="19" height="15" rx="3"/><path d="M10 9.2v5.6l4.8-2.8z" fill="#b8893c" stroke="none"/></svg>
+              </div>
+              <div>
+                <div class="card-title">買櫝還珠（小動畫）</div>
+                <div class="card-badges"><span class="badge b-video">動畫短片</span><span class="badge b-course">暖身導讀</span></div>
+              </div>
+            </div>
+            <p class="card-desc">以短片重現「華美木匣」與「匣中寶珠」的對比場面，先感受故事的荒謬與趣味，再思考：究竟哪一樣才該被買走？</p>
+            <div class="card-meta">
+              <span>⏱ 約 1 分鐘</span><span>📺 YouTube Shorts</span><span>◎ 建議最先觀賞</span>
+            </div>
+            <div class="card-actions">
+              <a class="go" href="https://youtube.com/shorts/5FdmR7gPUTY?feature=share" target="_blank" rel="noopener">前往觀賞
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <button class="mini" data-copy="https://youtube.com/shorts/5FdmR7gPUTY?feature=share">複製連結</button>
+              <button class="check-btn" aria-pressed="false"><span class="tick">✓</span><span class="check-label">標記完成</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="station reveal" data-id="pearl-course" data-tags="pearl course">
+          <div class="node">貳</div>
+          <div class="station-card">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#b93a2b" stroke-width="1.8"><path d="M12 6.5C10.5 5 8 4.3 4.5 4.6v13C8 17.3 10.5 18 12 19.5c1.5-1.5 4-2.2 7.5-1.9v-13C16 4.3 13.5 5 12 6.5z"/><path d="M12 6.5v13"/></svg>
+              </div>
+              <div>
+                <div class="card-title">邏輯思辨：買櫝還珠</div>
+                <div class="card-badges"><span class="badge b-course">主課程</span></div>
+              </div>
+            </div>
+            <p class="card-desc">核心互動教材。逐句解析原文，梳理「楚人飾櫝」與「鄭人買櫝」的因果鏈，思考韓非子藉寓言批評的「以文害用」究竟指向何處。</p>
+            <div class="card-meta">
+              <span>⏱ 約 15 分鐘</span><span>🖥 互動網頁</span><span>◎ 本章核心</span>
+            </div>
+            <div class="card-actions">
+              <a class="go" href="https://p3688905-bit.github.io/Pearl3/" target="_blank" rel="noopener">開始學習
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <button class="mini" data-copy="https://p3688905-bit.github.io/Pearl3/">複製連結</button>
+              <button class="check-btn" aria-pressed="false"><span class="tick">✓</span><span class="check-label">標記完成</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="station reveal" data-id="pearl-extend" data-tags="pearl extend">
+          <div class="node">參</div>
+          <div class="station-card">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#3f5c7a" stroke-width="1.8"><path d="M12 3v18"/><path d="M5 7h14"/><path d="M5 7 2 14h6z"/><path d="M19 7l-3 7h6z"/><path d="M8 21h8"/></svg>
+              </div>
+              <div>
+                <div class="card-title">思辨之秤：買櫝還珠</div>
+                <div class="card-badges"><span class="badge b-extend">思辨延伸</span></div>
+              </div>
+            </div>
+            <p class="card-desc">以「秤」為喻——把「包裝」與「內容」放上兩端，衡量價值判斷的標準。練習分辨目的與手段的倒置，避免被表象牽著走。</p>
+            <div class="card-meta">
+              <span>⏱ 約 10 分鐘</span><span>🖥 互動網頁</span><span>◎ 加深推理能力</span>
+            </div>
+            <div class="card-actions">
+              <a class="go" href="https://p3688905-bit.github.io/Pearl2/" target="_blank" rel="noopener">進入思辨之秤
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <button class="mini" data-copy="https://p3688905-bit.github.io/Pearl2/">複製連結</button>
+              <button class="check-btn" aria-pressed="false"><span class="tick">✓</span><span class="check-label">標記完成</span></button>
+            </div>
+          </div>
+        </div>
+
+        <div class="station reveal" data-id="pearl-discuss" data-tags="pearl discuss">
+          <div class="node">肆</div>
+          <div class="station-card">
+            <div class="card-top">
+              <div class="card-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="#4f7f70" stroke-width="1.8"><path d="M20 15a3 3 0 0 1-3 3H8l-4 3V6a3 3 0 0 1 3-3h10a3 3 0 0 1 3 3z"/><path d="M8.5 9h7M8.5 12.5h4.5"/></svg>
+              </div>
+              <div>
+                <div class="card-title">買櫝還珠（討論題）</div>
+                <div class="card-badges"><span class="badge b-discuss">討論實踐</span></div>
+              </div>
+            </div>
+            <p class="card-desc">從寓言走向生活：精緻包裝的商品、華麗的簡報、漂亮的說辭……哪些是「櫝」，哪些是「珠」？與同學互相提問、舉例與反駁。</p>
+            <div class="card-meta">
+              <span>⏱ 約 20 分鐘</span><span>🖥 互動網頁</span><span>◎ 小組共學</span>
+            </div>
+            <div class="card-actions">
+              <a class="go" href="https://p3688905-bit.github.io/Pearl4" target="_blank" rel="noopener">展開討論題
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6"><path d="M7 17 17 7M9 7h8v8"/></svg></a>
+              <button class="mini" data-copy="https://p3688905-bit.github.io/Pearl4">複製連結</button>
+              <button class="check-btn" aria-pressed="false"><span class="tick">✓</span><span class="check-label">標記完成</span></button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== STEPS ===== -->
+<section id="steps">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">LEARNING ROUTE</div>
+      <h2 class="sec-title">思辨<em>四階梯</em></h2>
+      <p class="sec-desc">一章之內建議的行走順序，讓學習由淺入深、由輸入到輸出。</p>
+    </div>
+    <div class="steps reveal">
+      <div class="step"><div class="sn">觀</div><h4>動畫暖身</h4><p>先看小動畫建立畫面與興趣，掌握故事大意。</p></div>
+      <div class="step"><div class="sn">讀</div><h4>主課程研讀</h4><p>進入「邏輯思辨」教材，細讀原文並拆解論證結構。</p></div>
+      <div class="step"><div class="sn">辨</div><h4>延伸思辨</h4><p>透過「思辨之梁／之秤」比較推理方式，辨識謬誤。</p></div>
+      <div class="step"><div class="sn">論</div><h4>討論實踐</h4><p>以討論題進行小組辯論，提出主張、舉證與回應。</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROGRESS ===== -->
+<section id="progress">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">MY PROGRESS</div>
+      <h2 class="sec-title">我的<em>思辨足跡</em></h2>
+      <p class="sec-desc">每完成一站，就在學習地圖上蓋下一枚印章。進度會儲存在你的裝置中，下次開啟依然保留。</p>
+    </div>
+    <div class="prog-grid reveal">
+      <div class="ring-box">
+        <svg class="ring" viewBox="0 0 130 130">
+          <circle class="bg" cx="65" cy="65" r="54"/>
+          <circle class="fg" id="ringFg" cx="65" cy="65" r="54"/>
+        </svg>
+        <div class="ring-num"><b id="ringPct">0%</b><span>整體完成度</span></div>
+      </div>
+      <div class="prog-txt">
+        <h3 id="progTitle">卷軸初展，思辨待啟</h3>
+        <p id="progMsg">目前尚未蓋章。建議先從「濠梁之辯（小動畫）」開始，一分鐘即可展開你的第一段思辨旅程。</p>
+        <div class="stat-row">
+          <div class="stat"><b id="stTotal">8</b><span>學習站總數</span></div>
+          <div class="stat"><b id="stDone">0</b><span>已完成</span></div>
+          <div class="stat"><b id="stFish">0/4</b><span>濠梁之辯</span></div>
+          <div class="stat"><b id="stPearl">0/4</b><span>買櫝還珠</span></div>
+        </div>
+        <button class="reset" id="resetBtn">重 置 全 部 進 度</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== TIPS ===== -->
+<section id="tips">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="sec-tag">THINKING TOOLKIT</div>
+      <h2 class="sec-title">思辨<em>錦囊</em></h2>
+      <p class="sec-desc">兩則寓言背後共通的邏輯概念，以及可供課堂與自學使用的討論題庫。</p>
+    </div>
+    <div class="tips-grid">
+      <div class="panel reveal">
+        <div class="panel-h">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#b8893c" stroke-width="1.7"><path d="M9 18h6M10 21h4"/><path d="M12 3a6 6 0 0 0-3.5 10.9c.6.5.9 1.2.9 1.9V17h5.2v-1.2c0-.7.3-1.4.9-1.9A6 6 0 0 0 12 3z"/></svg>
+          <h3>邏輯概念卡</h3>
+        </div>
+        <div class="concept">
+          <h4>類比推理 vs. 演繹推論</h4>
+          <p>莊子由「魚出遊從容」推知「魚之樂」，是以外部現象類比內在感受；其結論或然，而非必然。</p>
+          <small>濠 梁 之 辯</small>
+        </div>
+        <div class="concept">
+          <h4>認知主體的界限</h4>
+          <p>「子非魚，安知魚之樂？」追問的是：不同主體之間，知識能否被確證與傳遞？</p>
+          <small>濠 梁 之 辯</small>
+        </div>
+        <div class="concept">
+          <h4>請循其本 · 溯本追源</h4>
+          <p>莊子回到問題的原點反詰「安知」二字的前提，示範了如何檢視論證的基礎是否成立。</p>
+          <small>濠 梁 之 辯</small>
+        </div>
+        <div class="concept">
+          <h4>形式與內容的取捨</h4>
+          <p>華美的木櫝是「形式」，匣中寶珠是「內容」。當裝飾過度，接收者便可能錯置重點。</p>
+          <small>買 櫝 還 珠</small>
+        </div>
+        <div class="concept">
+          <h4>手段與目的的倒置</h4>
+          <p>包裝原為賣珠之手段，卻成為被購買的目的——這是典型的「目的手段倒置」謬誤。</p>
+          <small>買 櫝 還 珠</small>
+        </div>
+        <div class="concept">
+          <h4>價值判斷的標準</h4>
+          <p>誰來決定「珠貴於櫝」？賣者、買者與作者的標準不同，結論也隨之不同，需明確交代依據。</p>
+          <small>買 櫝 還 珠</small>
+        </div>
+      </div>
+
+      <div class="panel reveal">
+        <div class="panel-h">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#4f7f70" stroke-width="1.7"><path d="M8 10h8M8 14h5"/><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20.5l1.4-5.2A8 8 0 1 1 21 12z"/></svg>
+          <h3>討論題庫</h3>
+        </div>
+        <div class="acc"><button class="acc-q"><span class="qn">一</span>莊子究竟「知不知」魚之樂？你的判斷依據是什麼？<span class="plus">＋</span></button><div class="acc-a"><div>先界定「知」的標準：是親身感受、科學觀察，還是合理推論？再檢視莊子與惠子各自使用的標準是否一致，並指出哪一方的推論存在跳躍。</div></div></div>
+        <div class="acc"><button class="acc-q"><span class="qn">二</span>惠子的反問是有效論證，還是轉移話題？<span class="plus">＋</span></button><div class="acc-a"><div>分析「子非魚，安知魚之樂」的邏輯形式，並對照莊子「子非我，安知我不知魚之樂」的回擊，討論這是否構成「以其人之道還治其人之身」的對稱推理。</div></div></div>
+        <div class="acc"><button class="acc-q"><span class="qn">三</span>鄭人買櫝還珠，錯在買者還是賣者？<span class="plus">＋</span></button><div class="acc-a"><div>分別從消費者判斷力、行銷設計與作者評價三個角度歸責，練習區分「因果責任」與「道德評價」。</div></div></div>
+        <div class="acc"><button class="acc-q"><span class="qn">四</span>生活中有哪些「買櫝還珠」的現象？<span class="plus">＋</span></button><div class="acc-a"><div>例如過度包裝的禮品、只看封面與點閱率的內容、華麗卻空洞的簡報。請各舉一例，並說明其中的「櫝」與「珠」分別是什麼。</div></div></div>
+        <div class="acc"><button class="acc-q"><span class="qn">五</span>好的包裝是否必然有害？<span class="plus">＋</span></button><div class="acc-a"><div>試著提出反例：適當的形式能幫助內容被理解與傳播。請建立你的判斷準則，並說明在什麼條件下形式會反客為主。</div></div></div>
+        <div class="acc"><button class="acc-q"><span class="qn">六</span>兩則寓言的思辨方法有何異同？<span class="plus">＋</span></button><div class="acc-a"><div>《莊子》關乎認知與主觀感受的界限，《韓非子》關乎實用與價值的取捨。比較兩者提問的方式、假設的立場與結論的強度。</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <svg class="foot-seal" viewBox="0 0 100 100">
+    <rect x="4" y="4" width="92" height="92" rx="10" fill="#b93a2b" opacity=".9"/>
+    <rect x="11" y="11" width="78" height="78" rx="6" fill="none" stroke="#fff6e9" stroke-width="2" opacity=".65"/>
+    <text x="50" y="44" text-anchor="middle" font-family="Ma Shan Zheng, serif" font-size="28" fill="#fff6e9">思辨</text>
+    <text x="50" y="76" text-anchor="middle" font-family="Ma Shan Zheng, serif" font-size="24" fill="#f6d9a8">無涯</text>
+  </svg>
+  <p>邏輯思辨 · 上學期學習地圖</p>
+  <div class="foot-links">
+    <a href="https://p3688905-bit.github.io/fish3/" target="_blank" rel="noopener">濠梁之辯｜邏輯思辨</a>
+    <a href="https://p3688905-bit.github.io/fish2/" target="_blank" rel="noopener">思辨之梁</a>
+    <a href="https://p3688905-bit.github.io/fish4/" target="_blank" rel="noopener">濠梁之辯｜討論題</a>
+    <a href="https://p3688905-bit.github.io/Pearl3/" target="_blank" rel="noopener">買櫝還珠｜邏輯思辨</a>
+    <a href="https://p3688905-bit.github.io/Pearl2/" target="_blank" rel="noopener">思辨之秤</a>
+    <a href="https://p3688905-bit.github.io/Pearl4" target="_blank" rel="noopener">買櫝還珠｜討論題</a>
+  </div>
+  <p class="small">資 源 整 理 自 課 程 網 址 彙 整 · 供 教 學 使 用</p>
+</footer>
+
+<button class="toTop" id="toTop" title="回到卷首">頂</button>
+<div class="toast" id="toast">已蓋章</div>
+
+<script>
+(function(){
+  /* ---------- petals ---------- */
+  var hero=document.querySelector('.hero');
+  var petalColors=['#e79aa4','#f2c3cb','#d9584a','#f6d9a8'];
+  for(var i=0;i<16;i++){
+    var p=document.createElement('span');
+    p.className='petal';
+    var sz=6+Math.random()*9;
+    p.style.left=(Math.random()*100)+'%';
+    p.style.width=sz+'px';p.style.height=sz*.72+'px';
+    p.style.borderRadius='50% 0 50% 50%';
+    p.style.background=petalColors[i%petalColors.length];
+    p.style.animationDuration=(9+Math.random()*11)+'s';
+    p.style.animationDelay=(-Math.random()*18)+'s';
+    p.style.opacity=(.45+Math.random()*.4).toFixed(2);
+    hero.appendChild(p);
+  }
+
+  /* ---------- reveal ---------- */
+  var revealEls=document.querySelectorAll('.reveal');
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.14});
+  revealEls.forEach(function(el){io.observe(el);});
+
+  /* ---------- nav scroll spy ---------- */
+  var navLinks=document.querySelectorAll('.nav-links a');
+  var secs=['map','ch-fish','ch-pearl','steps','progress','tips'];
+  var spy=new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){
+        var id=e.target.id;
+        navLinks.forEach(function(a){
+          a.classList.toggle('active', a.getAttribute('href')==='#'+id ||
+            (id==='ch-fish'&&a.getAttribute('href')==='#ch-fish') ||
+            (id==='ch-pearl'&&a.getAttribute('href')==='#ch-pearl'));
+        });
+      }
+    });
+  },{rootMargin:'-45% 0px -50% 0px'});
+  secs.forEach(function(id){ var el=document.getElementById(id); if(el) spy.observe(el); });
+
+  /* ---------- progress ---------- */
+  var KEY='logicMapProgress_v1';
+  var stations=Array.prototype.slice.call(document.querySelectorAll('.station'));
+  var saved={};
+  try{ saved=JSON.parse(localStorage.getItem(KEY)||'{}')||{}; }catch(err){ saved={}; }
+
+  var ringFg=document.getElementById('ringFg');
+  var C=2*Math.PI*54;
+  ringFg.style.strokeDasharray=C;
+
+  var titles=[
+    '卷軸初展，思辨待啟',
+    '初窺門徑，思辨萌芽',
+    '漸入佳境，推論成形',
+    '思如泉湧，辯若懸河',
+    '思辨圓滿，卷軸已成'
+  ];
+  var msgs=[
+    '目前尚未蓋章。建議先從「濠梁之辯（小動畫）」開始，一分鐘即可展開你的第一段思辨旅程。',
+    '你已經踏出第一步！接著進入「邏輯思辨」主課程，細讀原文並拆解論證結構。',
+    '進度過半在望。別忘了「思辨之梁／之秤」延伸站，它能把推理的能力再推高一層。',
+    '很棒！剩下的討論題是思辨的試金石——把想法說出口，與同學互相反駁與修正。',
+    '八站全數完成！你已走完兩則寓言的思辨之旅，接下來，試著自己提出一個新問題吧。'
+  ];
+
+  function render(){
+    var done=0, fishDone=0, pearlDone=0;
+    stations.forEach(function(st){
+      var id=st.dataset.id;
+      var on=!!saved[id];
+      st.classList.toggle('done',on);
+      var btn=st.querySelector('.check-btn');
+      btn.setAttribute('aria-pressed', on?'true':'false');
+      st.querySelector('.check-label').textContent = on?'已完成':'標記完成';
+      if(on){ done++; if(st.dataset.tags.indexOf('fish')>-1) fishDone++; else pearlDone++; }
+    });
+    var total=stations.length;
+    var pct=Math.round(done/total*100);
+    ringFg.style.strokeDashoffset=C*(1-pct/100);
+    document.getElementById('ringPct').textContent=pct+'%';
+    document.getElementById('navCount').textContent=done;
+    document.getElementById('noteCount').textContent=done;
+    document.getElementById('stTotal').textContent=total;
+    document.getElementById('stDone').textContent=done;
+    document.getElementById('stFish').textContent=fishDone+'/4';
+    document.getElementById('stPearl').textContent=pearlDone+'/4';
+    document.querySelectorAll('[data-bar]').forEach(function(b){
+      var key=b.getAttribute('data-bar');
+      var n=key==='fish'?fishDone:pearlDone;
+      b.style.width=(n/4*100)+'%';
+    });
+    document.querySelectorAll('[data-count]').forEach(function(c){
+      var key=c.getAttribute('data-count');
+      c.textContent=key==='fish'?fishDone:pearlDone;
+    });
+    var tier = done===0?0 : done<=2?1 : done<=4?2 : done<total?3:4;
+    document.getElementById('progTitle').textContent=titles[tier];
+    document.getElementById('progMsg').textContent=msgs[tier];
+  }
+
+  function save(){ try{ localStorage.setItem(KEY,JSON.stringify(saved)); }catch(err){} }
+
+  stations.forEach(function(st){
+    st.querySelector('.check-btn').addEventListener('click',function(){
+      var id=st.dataset.id;
+      saved[id]=!saved[id];
+      if(!saved[id]) delete saved[id];
+      save(); render();
+      toast(saved[id]?'已蓋章：'+st.querySelector('.card-title').textContent:'已取消蓋章');
+      if(saved[id]) st.querySelector('.node').animate(
+        [{transform:'scale(1)'},{transform:'scale(1.45) rotate(-12deg)'},{transform:'scale(1)'}],
+        {duration:520,easing:'ease-out'});
+    });
+  });
+
+  document.getElementById('resetBtn').addEventListener('click',function(){
+    saved={}; save(); render(); toast('進度已重置，重新展開卷軸');
+  });
+
+  /* ---------- copy ---------- */
+  document.querySelectorAll('[data-copy]').forEach(function(btn){
+    btn.addEventListener('click',function(){
+      var url=btn.getAttribute('data-copy');
+      var ok=function(){ toast('連結已複製'); };
+      if(navigator.clipboard&&navigator.clipboard.writeText){
+        navigator.clipboard.writeText(url).then(ok).catch(fallback);
+      } else fallback();
+      function fallback(){
+        var ta=document.createElement('textarea');
+        ta.value=url; ta.style.position='fixed'; ta.style.opacity='0';
+        document.body.appendChild(ta); ta.select();
+        try{ document.execCommand('copy'); ok(); }catch(e){ toast('請手動複製：'+url); }
+        document.body.removeChild(ta);
+      }
+    });
+  });
+
+  /* ---------- filters ---------- */
+  var chips=document.querySelectorAll('.chip');
+  var chapters=document.querySelectorAll('.chapter');
+  chips.forEach(function(c){
+    c.addEventListener('click',function(){
+      chips.forEach(function(x){x.classList.remove('on');});
+      c.classList.add('on');
+      var f=c.getAttribute('data-filter');
+      var shown=0;
+      stations.forEach(function(st){
+        var tags=st.dataset.tags.split(' ');
+        var hit=(f==='all')||tags.indexOf(f)>-1;
+        st.classList.toggle('hidden',!hit);
+        if(hit) shown++;
+      });
+      chapters.forEach(function(ch){
+        var key=ch.dataset.chapter;
+        var vis=(f==='all')||f===key||(f==='course'||f==='extend'||f==='discuss'||f==='video');
+        ch.style.display = (f==='all'||f===key||(f!=='fish'&&f!=='pearl'))?'':'none';
+        void vis;
+      });
+      document.getElementById('filterNote').innerHTML =
+        (f==='all') ? '共 '+shown+' 個學習站 · 已完成 <b style="color:#b93a2b">'+document.getElementById('stDone').textContent+'</b> 站'
+                    : '篩選「'+c.textContent.trim()+'」：'+shown+' 個學習站';
+    });
+  });
+
+  /* ---------- accordion ---------- */
+  document.querySelectorAll('.acc-q').forEach(function(q){
+    q.addEventListener('click',function(){
+      var acc=q.parentElement, body=acc.querySelector('.acc-a');
+      var open=acc.classList.contains('open');
+      document.querySelectorAll('.acc.open').forEach(function(o){
+        o.classList.remove('open'); o.querySelector('.acc-a').style.maxHeight=null;
+      });
+      if(!open){ acc.classList.add('open'); body.style.maxHeight=body.scrollHeight+'px'; }
+    });
+  });
+
+  /* ---------- toast ---------- */
+  var toastEl=document.getElementById('toast'), tTimer=null;
+  function toast(msg){
+    toastEl.textContent=msg; toastEl.classList.add('show');
+    clearTimeout(tTimer); tTimer=setTimeout(function(){ toastEl.classList.remove('show'); },2200);
+  }
+
+  /* ---------- back to top ---------- */
+  var toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',function(){
+    toTop.classList.toggle('show', window.scrollY>620);
+  },{passive:true});
+  toTop.addEventListener('click',function(){ window.scrollTo({top:0,behavior:'smooth'}); });
+
+  render();
+})();
+</script>
+</body>
+</html>
